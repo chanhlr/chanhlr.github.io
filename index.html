@@ -11,28 +11,6 @@
 		<style>
 			body{padding:0px;margin:0px;}
 		</style>
-		<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('#hsrj').height(window.screen.height*5);
-				window.onscroll = function(){
-					//var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-					var w = ($(window).width()-1170)/2;
-					if(w<15){
-						$('#shell').css("margin-top","1930px");
-						$('#shell').css("margin-left","100px");
-						$('#shell').css("width","380px");
-					}else{
-						$('#shell').css("margin-top","1700px");
-						$('#shell').css("margin-left",($(window).width()-1170)/2+15);
-						$('#shell').css("width","585px");
-					}
-					$('#shell').css("display","block");
-				}
-				$('#shell').css("margin-top","1700px");
-				$('#shell').css("margin-left",($(window).width()-1170)/2+15);
-			})
-		</script>
 	</head>
 
 	<body>
