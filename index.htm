@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>测试</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        body {
+            font-size: 0.14rem;
+            border: 0;
+            margin: 0;
+            background-color: #fff
+        }
+
+        table {
+            /*background: #fff;*/
+        }
+
+        table td {
+            /*background: #fff;*/
+            border: 0;
+        }
+
+        * {
+            border: 0;
+            margin: 0px;
+            padding: 0px;
+            -webkit-tap-highlight-color: #fff;
+        }
+
+        img {
+            display: block;
+            cursor: pointer;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a, img {
+            border: 0;
+        }
+
+        .content_object_good td img {
+            margin: 0 auto;
+        }
+
+        /*.content_object td{*/
+        /*background: #00ff00;*/
+        /*}*/
+    </style>
+    <script type="text/javascript">
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+
+        // 该代码来自http://www.ghugo.com/mobile-h5-fluid-layout-for-iphone6/
+        (function (doc, win) {
+            // 分辨率Resolution适配
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+                };
+
+            // Abort if browser does not support addEventListener
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+
+            // 一物理像素在不同屏幕的显示效果不一样。要根据devicePixelRatio来修改meta标签的scale,要注释上面的meta标签
+            (function () {
+                return;
+                var dpr = scale = 1;
+                var isIPhone = win.navigator.appVersion.match(/iphone/gi);
+                var devicePixelRatio = win.devicePixelRatio;
+                if (isIPhone) {
+                    // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
+                    if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {
+                        dpr = 3;
+                    } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)) {
+                        dpr = 2;
+                    } else {
+                        dpr = 1;
+                    }
+                } else {
+                    // 其他设备下，仍旧使用1倍的方案
+                    dpr = 1;
+                }
+
+                scale = 1 / dpr;
+
+                var metaEl = "";
+                metaEl = doc.createElement('meta');
+                metaEl.setAttribute('name', 'viewport');
+                metaEl.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+                if (docEl.firstElementChild) {
+                    docEl.firstElementChild.appendChild(metaEl);
+                } else {
+                    var wrap = doc.createElement('div');
+                    wrap.appendChild(metaEl);
+                    doc.write(wrap.innerHTML);
+                }
+            })();
+
+        })(document, window);
+    </script>
+</head>
+<body>
+<div>
+    <img id="title" src="images/lpzq/title.jpg" width="100%" style="cursor:pointer" onclick="call('1:http://www.51fanchen.com:8090/fcyx2/html/zq.htm,中秋节')">
+</div>
+
+<div class="content_object" style="width: 100%;position:relative;background:url('images/lpzq/bg1.jpg');background-size: cover">
+
+        <table id="content1" width="82.26%" style="position:absolute;left:50%;margin-left:-41.13%;top:0px" cellspacing="0" cellpadding="0">
+            <tr>
+                <td rowspan="2"><img id="good1" width="97.4%" src="images/lpzq/good1.png" onclick="call('2:老人礼品,老人')"></td>
+                <td height="100px" align="right"><img id="good2" width="80%" src="images/lpzq/good2.png" onclick="call('2:女票礼品,女票')"></td>
+            </tr>
+            <tr>
+                <td height="100px" align="right"><img id="good3" width="80%"src="images/lpzq/good3.png" onclick="call('2:男票礼品,男票')"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><img id="good4" width="100%" src="images/lpzq/good4.png" onclick="call('2:儿童礼品,儿童')">
+                </td>
+            </tr>
+            <tr>
+                <td align="left"><img id="good5" width="97%" src="images/lpzq/good5.png" onclick="call('2:哥们礼品,哥们')"></td>
+                <td align="right"><img id="good6" width="97%" src="images/lpzq/good6.png" onclick="call('2:闺蜜礼品,闺蜜')"></td>
+            </tr>
+        </table>
+    <!--</div>-->
+</div>
+
+<div class="content_occasion" style="position:relative;background:url('images/lpzq/bg2.png');background-size:cover">
+
+    <div id="content2" class="content_object_good"style="width:86%;left:50%;margin-left:-43%;position:absolute;">
+        <div style="width:100%" >
+            <img id="good7" width="100%" src="images/lpzq/good7.png" onclick="call('2:生日礼品,生日')">
+        </div>
+
+        <div class="content2-inner" style="width:100%;margin: 25px auto">
+
+            <div class="inner-left" style="width:52.63%;float: left">
+                <div id="good8" style="width:100%;">
+                    <img src="images/lpzq/good8.png" width="93.82%" onclick="call('2:浪漫礼品,浪漫')">
+                </div>
+                <div id="good9" style="width:100%;margin-top: 20px" align="right">
+                    <img src="images/lpzq/good9.png" width="94.41%" onclick="call('2:结婚礼品,结婚')">
+                </div>
+            </div>
+            <div class="inner-right" style="width:47.37%;float:right;" align="center">
+                <div id="good10" style="width:100%;">
+                    <img src="images/lpzq/good10.png" width="83.33%" onclick="call('2:感谢礼品,感谢')">
+                </div>
+
+                <div id="good11" style="width:100%">
+                    <img src="images/lpzq/good11.png" width="74.84%" onclick="call('2:乔迁礼品,乔迁')">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content_company" style="background:url('images/lpzq/qytg.jpg');background-size:cover;cursor:pointer;" onclick="call('2:企业礼品,代购')">
+</div>
+
+<script type="text/javascript">
+	function call(value){
+		if (bIsAndroid) {
+			fc.goNext(value);
+		}else{
+			//window.webkit.messageHandlers.goNext.postMessage(value);
+			var str= navigator.userAgent.toLowerCase(); 
+			var ver=str.match(/cpu iphone os (.*?) like mac os/);
+			var verNum;
+			if(ver){
+				verNum = ver[1].split("_");
+			}
+			
+		    if(ver[1].replace("_",".").replace("_","")*1>=9.3){
+		        window.webkit.messageHandlers.goNext.postMessage(value);
+		    }else{
+		        goNext(value);
+		    }
+		}
+	}
+</script>
+<script type="text/javascript">
+
+    var topHeight = Math.round(document.documentElement.clientWidth * (275 / 750));
+    $("#content1").css("top", topHeight);
+    //赠送对象高度
+    var objectHeight = Math.round(document.documentElement.clientWidth / (750 / 1375));
+    $(".content_object").css("height", objectHeight);
+
+    var top2Height = Math.round(document.documentElement.clientWidth * (240 / 750));
+    $("#content2").css("top", top2Height);
+    $("#good4").css("margin-top",document.documentElement.clientWidth / (750 / 20));
+    $("#good5").css("margin-top",document.documentElement.clientWidth / (750 / 20));
+    $("#good6").css("margin-top",document.documentElement.clientWidth / (750 / 20));
+
+    var occasionHeight = Math.round(document.documentElement.clientWidth / (750 / 1163));
+    $(".content_occasion").css("height", occasionHeight);
+
+    $(".content2-inner").css("margin-top",document.documentElement.clientWidth / (750 / 45));
+    $("#good9").css("margin-top",document.documentElement.clientWidth / (750 / 20));
+    $("#good11").css("margin-top",document.documentElement.clientWidth / (750 / 19));
+
+    var companyHeight = Math.round(document.documentElement.clientWidth / (750 / 410));
+    $(".content_company").css("height", companyHeight);
+
+</script>
+</body>
+</html>
